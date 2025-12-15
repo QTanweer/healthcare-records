@@ -1,0 +1,240 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* MedVault Color Palette - Light Mode */
+  --background: #ffffff;
+  --foreground: #1c1c1e;
+  --card: #ffffff;
+  --card-foreground: #1c1c1e;
+  --popover: #ffffff;
+  --popover-foreground: #1c1c1e;
+  --primary: #ff6f61; /* Neon coral for primary actions */
+  --primary-foreground: #ffffff;
+  --secondary: #c8a2c8; /* Soft lilac for secondary elements */
+  --secondary-foreground: #1c1c1e;
+  --muted: #f5f5f7;
+  --muted-foreground: #8e8e93;
+  --accent: #3ddc97; /* Electric teal for success states */
+  --accent-foreground: #1c1c1e;
+  --destructive: #ff3b30;
+  --destructive-foreground: #ffffff;
+  --border: #e5e5e7;
+  --input: #e5e5e7;
+  --ring: #ff6f61;
+  --chart-1: #ff6f61;
+  --chart-2: #3ddc97;
+  --chart-3: #c8a2c8;
+  --chart-4: #007aff;
+  --chart-5: #ff9500;
+  --radius: 0.625rem;
+  --sidebar: #f5f5f7;
+  --sidebar-foreground: #1c1c1e;
+  --sidebar-primary: #ff6f61;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e5e5e7;
+  --sidebar-accent-foreground: #1c1c1e;
+  --sidebar-border: #e5e5e7;
+  --sidebar-ring: #ff6f61;
+}
+
+.dark {
+  /* MedVault Color Palette - Dark Mode */
+  --background: #1c1c1e; /* Deep obsidian gray for main surfaces */
+  --foreground: #ffffff;
+  --card: #2a2a2d; /* Charcoal with gradient */
+  --card-foreground: #ffffff;
+  --popover: #2a2a2d;
+  --popover-foreground: #ffffff;
+  --primary: #ff6f61; /* Neon coral for primary actions */
+  --primary-foreground: #ffffff;
+  --secondary: #c8a2c8; /* Soft lilac for secondary elements */
+  --secondary-foreground: #ffffff;
+  --muted: #3a3a3c;
+  --muted-foreground: #8e8e93;
+  --accent: #3ddc97; /* Electric teal for success states */
+  --accent-foreground: #1c1c1e;
+  --destructive: #ff453a;
+  --destructive-foreground: #ffffff;
+  --border: #3a3a3c;
+  --input: #3a3a3c;
+  --ring: #ff6f61;
+  --chart-1: #ff6f61;
+  --chart-2: #3ddc97;
+  --chart-3: #c8a2c8;
+  --chart-4: #007aff;
+  --chart-5: #ff9500;
+  --sidebar: #1c1c1e; /* Deep obsidian gray */
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ff6f61; /* Neon coral */
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2a2a2d;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #3a3a3c;
+  --sidebar-ring: #ff6f61;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Added MedVault specific color utilities */
+  --color-medvault-obsidian: #1c1c1e;
+  --color-medvault-coral: #ff6f61;
+  --color-medvault-teal: #3ddc97;
+  --color-medvault-lilac: #c8a2c8;
+  --color-medvault-charcoal: #2a2a2d;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground min-h-screen;
+    /* Added charcoal gradient background for dark mode */
+    background: linear-gradient(135deg, var(--background) 0%, var(--card) 100%);
+  }
+}
+
+/* Updated MedVault specific utility classes with exact colors */
+.medvault-obsidian {
+  background-color: #1c1c1e;
+  color: #ffffff;
+}
+
+.medvault-coral {
+  background-color: #ff6f61;
+  color: #ffffff;
+}
+
+.medvault-teal {
+  background-color: #3ddc97;
+  color: #1c1c1e;
+}
+
+.medvault-lilac {
+  background-color: #c8a2c8;
+  color: #1c1c1e;
+}
+
+.medvault-charcoal {
+  background-color: #2a2a2d;
+  color: #ffffff;
+}
+
+/* Enhanced gradient and glow effects */
+.gradient-card {
+  background: linear-gradient(135deg, #2a2a2d 0%, #1c1c1e 100%);
+}
+
+.neon-glow {
+  box-shadow: 0 0 20px rgba(61, 220, 151, 0.3);
+}
+
+.coral-glow {
+  box-shadow: 0 0 20px rgba(255, 111, 97, 0.3);
+}
+
+.lilac-glow {
+  box-shadow: 0 0 20px rgba(200, 162, 200, 0.3);
+}
+
+/* Updated status classes with MedVault colors */
+.status-sealed {
+  @apply bg-accent/20 text-accent border border-accent/30;
+  background-color: rgba(61, 220, 151, 0.2);
+  color: #3ddc97;
+  border-color: rgba(61, 220, 151, 0.3);
+}
+
+.status-pending {
+  @apply bg-secondary/20 text-secondary border border-secondary/30;
+  background-color: rgba(200, 162, 200, 0.2);
+  color: #c8a2c8;
+  border-color: rgba(200, 162, 200, 0.3);
+}
+
+.status-active {
+  @apply bg-primary/20 text-primary border border-primary/30;
+  background-color: rgba(255, 111, 97, 0.2);
+  color: #ff6f61;
+  border-color: rgba(255, 111, 97, 0.3);
+}
+
+.status-expired {
+  @apply bg-destructive/20 text-destructive border border-destructive/30;
+}
+
+/* Added pulsing animation for upload zones */
+.pulse-border {
+  animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+  0%,
+  100% {
+    border-color: rgba(255, 111, 97, 0.3);
+  }
+  50% {
+    border-color: rgba(255, 111, 97, 0.8);
+  }
+}
+
+/* Added success animation */
+.success-checkmark {
+  animation: checkmark 0.6s ease-in-out;
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
