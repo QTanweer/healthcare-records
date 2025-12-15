@@ -4,7 +4,7 @@ A Next.js-powered healthcare application built with modern web technologies.
 
 ## Status
 
-This is currently a frontend-only application. Backend services, smart contracts, and wallet integration are in progress and will be added in future iterations.
+This is currently a frontend-only application with an incomplete UI. It uses mock data and values as it is not yet integrated with live backend and databases. Backend services, smart contracts, and wallet integration are in progress and will be added in future iterations.
 
 ## Tech Stack
 
